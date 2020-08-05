@@ -7,6 +7,9 @@
 3. Using REPL documentation functions, find the documentation for the rem and mod functions. Compare the results of the provided expressions based on the documentation.
 4. Using find-doc, find the function that prints the stack trace of the most recent REPL exception.
 
+
+## Answers
+
 ### 1:
 ```
 (+ 7654 1234)
