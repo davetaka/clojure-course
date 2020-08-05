@@ -133,13 +133,17 @@ That is, your function returns the composition of f and g.
 
 ### 1:
 ```
-(defn greet [] (print "Hello"))
+(defn greet [] 
+    (print "Hello"))
 ```
   
 ### 2:
 ```
-(def greet (fn [] (print "Hello")))
-(def greet #(print "Hello"))
+(def greet 
+    (fn [] (print "Hello")))
+
+(def greet 
+    #(print "Hello"))
 ```
   
 ### 3:
@@ -168,7 +172,8 @@ That is, your function returns the composition of f and g.
   
 ### 6:
 ```
-(defn make-thingy [x] (fn [& args] x))
+(defn make-thingy [x] 
+    (fn [& args] x))
 
 ;; Tests
 (let [n (rand-int Integer/MAX_VALUE)
@@ -180,7 +185,8 @@ That is, your function returns the composition of f and g.
   
 ### 7:
 ```
-(defn triplicate [f] (f)(f)(f))
+(defn triplicate [f] 
+    (f) (f) (f))
 
 ;; test:
 (triplicate greet)
@@ -188,7 +194,8 @@ That is, your function returns the composition of f and g.
 
 ### 8:
 ```
-(defn opposite [f] (fn [& args] (not (apply f args))))
+(defn opposite [f] 
+    (fn [& args] (not (apply f args))))
 
 ;; test:
 (defn even [x] (println (= 0 (rem x 2))))
@@ -231,6 +238,11 @@ That is, your function returns the composition of f and g.
     testNumber
 )
 ```
+#### correct answer
+```
+(+  (Math/pow (Math/sin 0.2) 2)
+    (Math/pow (Math/cos 0.2) 2))
+```
 
 ### 11:
 ```
@@ -242,13 +254,28 @@ That is, your function returns the composition of f and g.
         )
     )
 )
+
+(defn http-get [url]
+    (slurp url))
+
 ;; test
 (assert (.contains (http-get "https://google.com/") "html"))
+```
+#### correct answer
+```
+(defn http-get [url]
+    (slurp
+        (.openStream
+            (java.net.URL. url))))
+
+(defn http-get [url]
+    (slurp url))
 ```
 
 ### 12:
 (defn one-less-arg [f x]
-    (fn [& args] (f x args)))
+    (fn [& args] (apply f x args)))
 
 ;; test
-()
+(defn two-fns [f g] 
+    (fn [x] (f (g x))))
