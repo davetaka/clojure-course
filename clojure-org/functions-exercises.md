@@ -129,7 +129,7 @@ That is, your function returns the composition of f and g.
 ```
 
 
-## Answers
+## my answers
 
 ### 1:
 ```
@@ -273,9 +273,13 @@ That is, your function returns the composition of f and g.
 ```
 
 ### 12:
+```
 (defn one-less-arg [f x]
     (fn [& args] (apply f x args)))
+```
 
-;; test
+### 13:
+```
 (defn two-fns [f g] 
     (fn [x] (f (g x))))
+```
