@@ -10,3 +10,5 @@ based on course [Functional Programming with Clojure](https://app.pluralsight.co
 * to get arrows working in repl, it's necessary to install rlwrap
 * i installed openjdk-14-jdk and followed steps from clojure.org for completing clojure install
 * it needs to clone [mire](https://github.com/technomancy/mire) for following first module lessons
+* compojure for web framework
+* ring for http web apps
