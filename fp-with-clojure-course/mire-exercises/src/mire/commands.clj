@@ -1,4 +1,4 @@
-(ns commands
+(ns mire.commands
   (:require [clojure.string :as str]))
 
 (defn current-time []

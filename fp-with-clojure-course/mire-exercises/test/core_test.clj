@@ -1,4 +1,4 @@
-(ns mire-exercises.core-test
+(ns core-test
   (:require [clojure.test :refer :all]
             [mire-exercises.core :refer :all]))
 

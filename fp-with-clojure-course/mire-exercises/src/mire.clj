@@ -1,6 +1,6 @@
-(ns mire-exercises.core
+(ns mire
   (:require [clojure.java.io :as io]
-            [commands :as cmd]
+            [mire.commands :as cmd]
             [server.socket :refer (create-server)]))
 
 (def prompt "> ")
