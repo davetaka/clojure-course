@@ -1,15 +1,19 @@
 (ns mire-exercises.core
   (:require [clojure.java.io :as io]
+            [commands :as cmd]
             [server.socket :refer (create-server)]))
+
+(def prompt "> ")
 
 (defn -main [in out]
   (binding [*in* (io/reader in)
             *out* (io/writer out)]
-    (println "alguém conectou")
-    (loop []
-      (println (read-line))
+    (print prompt) (flush)
+    (loop [input (read-line)]
+      (println (cmd/execute input))
+      (print prompt)
       (flush)
-      (recur))))
+      (recur (read-line)))))
 
 (def server (create-server 3333 -main))
 
